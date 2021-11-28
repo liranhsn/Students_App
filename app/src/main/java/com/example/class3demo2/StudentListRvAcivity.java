@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -20,6 +22,7 @@ import java.util.List;
 public class StudentListRvAcivity extends AppCompatActivity {
 
     List<Student> data;
+    Button add_Btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +41,30 @@ public class StudentListRvAcivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Log.d("TAG","row was clicked " + position);
+                SwitchToDetailsActivity(position);
             }
         });
+
+        //Add Button.
+        add_Btn = findViewById(R.id.studentlist_add_btn);
+        add_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SwitchToAddActivity();
+            }
+        });
+    }
+
+    private void SwitchToDetailsActivity(int position){
+        Intent intent = new Intent(getBaseContext(), StudentDetailsActivity.class);
+        intent.putExtra("student_id",""+position);
+        startActivity(intent);
+    }
+
+    //Switch to add activity
+    private void SwitchToAddActivity() {
+        Intent intent = new Intent(this, StudentAddActivity.class);
+        startActivity(intent);
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
@@ -58,6 +82,16 @@ public class StudentListRvAcivity extends AppCompatActivity {
                 public void onClick(View v) {
                     int pos = getAdapterPosition();
                     listener.onItemClick(pos);
+                }
+            });
+
+            cb.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int pos =  getAdapterPosition();
+                    Log.d("TAG","cbn position " + pos);
+                    Student s = data.get(pos);
+                    s.setFlag(cb.isChecked());
                 }
             });
         }

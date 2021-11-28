@@ -7,8 +7,8 @@ public class Model {
     public static final Model instance = new Model();
 
     private Model(){
-        for(int i=0;i<100;i++){
-            Student s = new Student("name",""+i,false);
+        for(int i=0;i<10;i++){
+            Student s = new Student("name",""+i,"0524258836", "Julis" , false);
             data.add(s);
         }
     }
@@ -21,5 +21,29 @@ public class Model {
 
     public void addStudent(Student student){
         data.add(student);
+    }
+
+    public void deleteStudent(Student student){
+        data.remove(student);
+    }
+
+    public boolean existStudent(String id){
+        boolean contains = false;
+        for (Student elem : data) {
+            if (elem.getId().equals(id)) {
+                contains = true;
+                break;
+            }
+        }
+        return contains;
+    }
+
+    public Student getStudentById(String id){
+        for (Student elem : data) {
+            if (elem.getId().equals(id)) {
+                return elem;
+            }
+        }
+        return null;
     }
 }

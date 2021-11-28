@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Personal/Study/YearC/SemesterA/Android/exercise 3/Class4Demo2/app/src/main/res/layout/activity_main.xml" value="0.1272644927536232" />
+        <entry key="..\:/Personal/Study/YearC/SemesterA/Android/exercise 3/Class4Demo2/app/src/main/res/layout/activity_student_add.xml" value="0.22" />
+        <entry key="..\:/Personal/Study/YearC/SemesterA/Android/exercise 3/Class4Demo2/app/src/main/res/layout/activity_student_details.xml" value="0.22" />
+        <entry key="..\:/Personal/Study/YearC/SemesterA/Android/exercise 3/Class4Demo2/app/src/main/res/layout/activity_student_edit.xml" value="0.3333333333333333" />
+        <entry key="..\:/Personal/Study/YearC/SemesterA/Android/exercise 3/Class4Demo2/app/src/main/res/layout/activity_student_list_rv_acivity.xml" value="0.16666666666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_student_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_student_list_rv_acivity.xml" value="0.1" />
