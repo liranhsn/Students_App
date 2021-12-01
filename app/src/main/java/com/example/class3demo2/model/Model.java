@@ -46,4 +46,11 @@ public class Model {
         }
         return null;
     }
+    public void removeStudentById(String id){
+        for (Student elem : data) {
+            if (elem.getId().equals(id)) {
+                data.remove(elem);
+            }
+        }
+    }
 }

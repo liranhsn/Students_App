@@ -50,7 +50,7 @@ public class StudentEditActivity extends AppCompatActivity {
             position = Integer.parseInt(extras.getString("student_id"));
         }
 
-        student = data.get(position);
+        student = Model.instance.getStudentById(""+position);;
         nameEt.setText(student.getName());
         idEt.setText(student.getId());
         phoneEt.setText(student.getPhone());
