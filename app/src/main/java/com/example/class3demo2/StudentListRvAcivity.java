@@ -23,6 +23,7 @@ public class StudentListRvAcivity extends AppCompatActivity {
 
     List<Student> data;
     Button add_Btn;
+    MyAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +36,10 @@ public class StudentListRvAcivity extends AppCompatActivity {
 
         list.setLayoutManager(new LinearLayoutManager(this));
 
-        MyAdapter adapter = new MyAdapter();
+        adapter = new MyAdapter();
         list.setAdapter(adapter);
+
+
 
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -58,13 +61,15 @@ public class StudentListRvAcivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
+        adapter.notifyDataSetChanged();
         data = Model.instance.getAllStudents();
     }
 
     private void SwitchToDetailsActivity(int position){
         Intent intent = new Intent(getBaseContext(), StudentDetailsActivity.class);
-        intent.putExtra("student_id",""+position);
+        Student student = data.get(position);
+
+        intent.putExtra("student_id",""+student.getId());
         startActivity(intent);
     }
 

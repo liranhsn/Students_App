@@ -70,9 +70,7 @@ public class StudentDetailsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        data = Model.instance.getAllStudents();
-        Student student = data.get(position);
+        Student student = Model.instance.getStudentById(""+position);
         nameEt.setText(student.getName());
         idEt.setText(student.getId());
         phoneEt.setText(student.getPhone());
