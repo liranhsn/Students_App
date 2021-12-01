@@ -29,7 +29,7 @@ public class StudentListRvAcivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_list_rv_acivity);
 
-        data = Model.instance.getAllStudents();
+//        data = Model.instance.getAllStudents();
 
         RecyclerView list = findViewById(R.id.studentlist_rv);
         list.setHasFixedSize(true);

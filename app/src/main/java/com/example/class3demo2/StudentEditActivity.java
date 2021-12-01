@@ -50,7 +50,7 @@ public class StudentEditActivity extends AppCompatActivity {
             position = Integer.parseInt(extras.getString("student_id"));
         }
 
-        student = data.get(position);
+        student = Model.instance.getStudentById(""+position);
         nameEt.setText(student.getName());
         idEt.setText(student.getId());
         phoneEt.setText(student.getPhone());
@@ -81,10 +81,15 @@ public class StudentEditActivity extends AppCompatActivity {
     }
 
     private void SaveBtn(){
-            Student new_student = new Student(nameEt.getText().toString(), idEt.getText().toString(),
-                    phoneEt.getText().toString(), addressEt.getText().toString() , cb.isChecked());
-            Model.instance.deleteStudent(student);
-            Model.instance.addStudent(new_student);
+        student.setName(nameEt.getText().toString());
+        student.setId(idEt.getText().toString());
+        student.setPhone(phoneEt.getText().toString());
+        student.setAddress(addressEt.getText().toString());
+        student.setFlag(cb.isChecked());
+//            Student new_student = new Student(nameEt.getText().toString(), idEt.getText().toString(),
+//                    phoneEt.getText().toString(), addressEt.getText().toString() , cb.isChecked());
+//            Model.instance.deleteStudent(student);
+//            Model.instance.addStudent(new_student);
             finish();
 
             Toast.makeText(getApplicationContext(),"The student successfully edited",Toast.LENGTH_LONG).show();

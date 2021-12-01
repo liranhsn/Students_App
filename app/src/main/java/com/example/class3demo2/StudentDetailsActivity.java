@@ -50,12 +50,12 @@ public class StudentDetailsActivity extends AppCompatActivity {
 
 
 
-        Student student = data.get(position);
-        nameEt.setText(student.getName());
-        idEt.setText(student.getId());
-        phoneEt.setText(student.getPhone());
-        addressEt.setText(student.getAddress());
-        cb.setChecked(student.isFlag());
+//        Student student = data.get(position);
+//        nameEt.setText(student.getName());
+//        idEt.setText(student.getId());
+//        phoneEt.setText(student.getPhone());
+//        addressEt.setText(student.getAddress());
+//        cb.setChecked(student.isFlag());
 
 
         //Edit button Clicked.
@@ -71,11 +71,15 @@ public class StudentDetailsActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Student student = Model.instance.getStudentById(""+position);
-        nameEt.setText(student.getName());
-        idEt.setText(student.getId());
-        phoneEt.setText(student.getPhone());
-        addressEt.setText(student.getAddress());
-        cb.setChecked(student.isFlag());
+        if (student == null) {
+            finish();
+        } else {
+            nameEt.setText(student.getName());
+            idEt.setText(student.getId());
+            phoneEt.setText(student.getPhone());
+            addressEt.setText(student.getAddress());
+            cb.setChecked(student.isFlag());
+        }
     }
 
     private void EditMode() {
