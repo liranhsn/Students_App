@@ -85,21 +85,18 @@ public class StudentEditActivity extends AppCompatActivity {
                     phoneEt.getText().toString(), addressEt.getText().toString() , cb.isChecked());
             Model.instance.deleteStudent(student);
             Model.instance.addStudent(new_student);
-            Intent intent = new Intent(this, StudentListRvAcivity.class);
-            startActivity(intent);
+            finish();
 
             Toast.makeText(getApplicationContext(),"The student successfully edited",Toast.LENGTH_LONG).show();
 
     }
     private void CancelBtn(){
-        Intent intent = new Intent(this, StudentDetailsActivity.class);
-        startActivity(intent);
+        finish();
     }
     private void Delete_Btn(){
 
             Model.instance.deleteStudent(student);
-            Intent intent = new Intent(this, StudentListRvAcivity.class);
-            startActivity(intent);
+            finish();
 
             Toast.makeText(getApplicationContext(),"The student successfully removed",Toast.LENGTH_LONG).show();
 

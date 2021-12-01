@@ -5,6 +5,7 @@ import androidx.constraintlayout.widget.*;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -64,6 +65,19 @@ public class StudentDetailsActivity extends AppCompatActivity {
                 EditMode();
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        data = Model.instance.getAllStudents();
+        Student student = data.get(position);
+        nameEt.setText(student.getName());
+        idEt.setText(student.getId());
+        phoneEt.setText(student.getPhone());
+        addressEt.setText(student.getAddress());
+        cb.setChecked(student.isFlag());
     }
 
     private void EditMode() {

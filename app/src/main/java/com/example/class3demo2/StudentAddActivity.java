@@ -53,8 +53,7 @@ public class StudentAddActivity extends AppCompatActivity {
     }
 
     private void cancel_click(){
-        Intent intent = new Intent(this, StudentListRvAcivity.class);
-        startActivity(intent);
+        finish();
     }
 
     private void save_click(){
@@ -65,8 +64,7 @@ public class StudentAddActivity extends AppCompatActivity {
             Student student = new Student(nameEt.getText().toString(), id, phoneEt.getText().toString(),
                                           addressEt.getText().toString() , cb.isChecked());
             Model.instance.addStudent(student);
-            Intent intent = new Intent(this, StudentListRvAcivity.class);
-            startActivity(intent);
+            finish();
 
             Toast.makeText(getApplicationContext(),"The student successfully added",Toast.LENGTH_LONG).show();
 

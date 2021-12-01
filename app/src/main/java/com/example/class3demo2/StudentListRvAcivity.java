@@ -55,6 +55,13 @@ public class StudentListRvAcivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        data = Model.instance.getAllStudents();
+    }
+
     private void SwitchToDetailsActivity(int position){
         Intent intent = new Intent(getBaseContext(), StudentDetailsActivity.class);
         intent.putExtra("student_id",""+position);
