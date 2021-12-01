@@ -37,9 +37,6 @@ public class StudentDetailsActivity extends AppCompatActivity {
         }
 
 
-        //Get Model.
-        data = Model.instance.getAllStudents();
-
         //Get the reference of the EditTexts.
         nameEt = findViewById(R.id.std_det_name_inp);
         idEt = findViewById(R.id.std_det_id_inp);
@@ -50,7 +47,7 @@ public class StudentDetailsActivity extends AppCompatActivity {
 
 
 
-        Student student = data.get(position);
+        Student student = Model.instance.getStudentById(""+position);
         nameEt.setText(student.getName());
         idEt.setText(student.getId());
         phoneEt.setText(student.getPhone());
